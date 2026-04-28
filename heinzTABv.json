@@ -1,0 +1,348 @@
+{
+  "name": "PlanifyIT Table",
+  "description": "PlanifyIT Table Widget with Single and Multiple Selection",
+  "newInstancePrefix": "planifyit_tab",
+  "eula": "",
+  "vendor": "Heinz Glass GmbH",
+  "license": "MIT",
+  "id": "planifyit_tab",
+  "version": "1.0.0",
+  "icon": "https://planifyit.github.io/PlanifyitTAB/PlanifyIT_Logo2.png",
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "planifyit-tab-widget",
+      "url": "https://planifyit.github.io/PlanifyitTAB/heinz-tab-widget.js",
+      "integrity": "sha256-H8HOoeqd3L2vcVVcuYFyRxSJpCmGpC+ZETNbkiacmBM="
+    },
+    {
+      "kind": "styling",
+      "tag": "com-planifyit-tab-styling",
+      "url": "https://planifyit.github.io/PlanifyitTAB/style-panel.js",
+      "integrity": "sha256-1LZeRI+g3sUr3qB6OXgeW8NwRN67BhmFG+4puPGVaPA="
+    }
+  ],
+  "properties": {
+    "headerTitle": {
+      "type": "string",
+      "description": "Title displayed in the table header",
+      "default": "Table Header"
+    },
+    "appTitle": {
+      "type": "string",
+      "description": "Title displayed for the application",
+      "default": "PlanifyIT Table"
+    },
+    "tableData": {
+      "type": "string",
+      "description": "JSON string of table data",
+      "default": "[]"
+    },
+    "tableColumns": {
+      "type": "string",
+      "description": "JSON string of table columns",
+      "default": "[]"
+    },
+    "selectedRows": {
+      "type": "string",
+      "description": "JSON string of selected row indices",
+      "default": "[]"
+    },
+	   "selectedRowsArray": {
+      "type": "string[]",
+      "description": "JSON string of selected row indices",
+      "default": []
+    },
+    "selectedRowsData": {
+      "type": "string",
+      "description": "Array of selected row data indices",
+      "default": "[]"
+    },
+    "isMultiSelectMode": {
+      "type": "boolean",
+      "description": "Whether multiple rows can be selected",
+      "default": false
+    },
+    "width": {
+      "type": "integer",
+      "default": 800
+    },
+    "height": {
+      "type": "integer",
+      "default": 600
+    },
+    "headerColor": {
+      "type": "string",
+      "description": "Color of the header row",
+      "default": "#1a73e8"
+    },
+    "buttonColor": {
+      "type": "string",
+      "description": "Color of the action buttons",
+      "default": "#ffffff"
+    },
+    "selectedRowColor": {
+      "type": "string",
+      "description": "Background color of selected rows",
+      "default": "#e8f0fe"
+    },
+    "hoverRowColor": {
+      "type": "string",
+      "description": "Background color of hovered rows",
+      "default": "#f5f5f5"
+    },
+    "tableTextColor": {
+      "type": "string",
+      "description": "Text color for table content",
+      "default": "#333333"
+    },
+    "headerTextColor": {
+      "type": "string",
+      "description": "Text color for table headers",
+      "default": "#ffffff"
+    },
+  "columnWidths": {
+  "type": "string",
+  "default": "[]"
+},
+    "symbolMappings": {
+      "type": "string",
+      "default": "[]"
+    },
+  "dynamicButtons": {
+    "type": "string",
+    "description": "JSON string of dynamically created buttons",
+    "default": "[]"
+},
+ "lastClickedButtonId": {
+    "type": "string",
+    "description": "ID of the last clicked button",
+    "default": ""
+}
+  },
+  "methods": {
+    "getSelectedRowData": {
+      "returnType": "string",
+      "description": "Get the data for the selected rows as an array",
+      "parameters": [],
+      "body": "return this.selectedRowsData || '[]';"
+    },
+    "getSelectedRows": {
+      "returnType": "string",
+      "description": "Get the selected row indices as a JSON string",
+      "parameters": [],
+      "body": "return this.selectedRows || '[]';"
+    },
+	    "getSelectedRowsArray": {
+      "returnType": "string[]",
+      "description": "Get the selected row indices as a JSON string",
+      "parameters": [],
+      "body": "return this.selectedRowsArray || '[]';"
+    },
+    "setSelectedRows": {
+      "description": "Set the selected row indices from a JSON string",
+      "parameters": [
+        {
+          "name": "rows",
+          "type": "string",
+          "description": "JSON string of row indices"
+        }
+      ],
+      "body": "this.selectedRows = rows;"
+    },
+    "getTableData": {
+      "returnType": "string",
+      "description": "Get the table data as a JSON string",
+      "parameters": [],
+      "body": "return this.tableData || '[]';"
+    },
+    "setTableData": {
+      "description": "Set the table data from a JSON string",
+      "parameters": [
+        {
+          "name": "data",
+          "type": "string",
+          "description": "JSON string of table data"
+        }
+      ],
+      "body": "this.tableData = data;"
+    },
+    "getTableColumns": {
+      "returnType": "string",
+      "description": "Get the table columns as a JSON string",
+      "parameters": [],
+      "body": "return this.tableColumns || '[]';"
+    },
+    "setTableColumns": {
+      "description": "Set the table columns from a JSON string",
+      "parameters": [
+        {
+          "name": "columns",
+          "type": "string",
+          "description": "JSON string of table columns"
+        }
+      ],
+      "body": "this.tableColumns = columns;"
+    },
+    "getMultiSelectMode": {
+      "returnType": "boolean",
+      "description": "Get whether multiple rows can be selected",
+      "parameters": [],
+      "body": "return this.isMultiSelectMode || false;"
+    },
+    "setMultiSelectMode": {
+      "description": "Set whether multiple rows can be selected",
+      "parameters": [
+        {
+          "name": "enable",
+          "type": "boolean",
+          "description": "Whether to enable multi-select mode"
+        }
+      ],
+      "body": "this.isMultiSelectMode = enable;"
+    },
+"getSelectedRowDataForSelection": {
+  "returnType": "string",
+  "description": "Retrieve the value of a specific dimension or measure from a selected row based on the provided key and row index.",
+  "parameters": [
+    {
+      "name": "key",
+      "type": "string",
+      "description": "The key of the dimension or measure (e.g., 'dimensions_0' or 'measures_0')."
+    },
+    {
+      "name": "rowIndex",
+      "type": "integer",
+      "description": "The index of the selected row in the selectedRowsData array."
+    }
+  ]
+}, 
+	 "setSelectedDimensionFilter": {
+  "returnType": "string",
+  "description": "Filter table data based on a specific dimension value",
+  "parameters": [
+    {
+      "name": "dimensionKey",
+      "type": "string",
+      "description": "The key of the dimension to filter (e.g., 'dimensions_0')"
+    },
+    {
+      "name": "filterValue",
+      "type": "string",
+      "description": "The value to filter for in the specified dimension"
+    }
+  ]
+},
+"clearAllFilters": {
+  "returnType": "string",
+  "description": "Clear all active filters from the table",
+  "parameters": []
+},
+"clearDimensionFilter": {
+  "returnType": "string",
+  "description": "Clear filter for a specific dimension",
+  "parameters": [
+    {
+      "name": "dimensionKey",
+      "type": "string",
+      "description": "The key of the dimension to clear the filter for"
+    }
+  ]
+},
+"getActiveDimensionFilter": {
+  "returnType": "string",
+  "description": "Get the active filter for a specific dimension",
+  "parameters": [
+    {
+      "name": "dimensionKey",
+      "type": "string",
+      "description": "The key of the dimension to get the filter for"
+    }
+  ]
+},
+"getFilteredRowCount": {
+  "returnType": "string",
+  "description": "Get the count of rows that match a filter criteria",
+  "parameters": [
+    {
+      "name": "dimensionKey",
+      "type": "string",
+      "description": "The key of the dimension to filter by (optional, returns current visible row count if not provided)"
+    },
+    {
+      "name": "filterValue",
+      "type": "string",
+      "description": "The value to filter for in the specified dimension (required if dimensionKey is provided)"
+    }
+  ]
+},	  
+"getButtonVisibility": {
+  "returnType": "string",
+  "description": "Retrieve the visibility state of a button based on its ID.",
+  "parameters": [
+    {
+      "name": "buttonId",
+      "type": "string",
+      "description": "The ID of the button to check visibility for."
+    }
+  ]
+},	  
+    "getDynamicButtons": {
+      "returnType": "string",
+      "description": "Get the dynamic buttons configuration as a JSON string",
+      "parameters": [],
+      "body": "return this.dynamicButtons || '[]';"
+    },
+	  "getLastClickedButtonId": {
+    "returnType": "string",
+    "description": "Get the ID of the last clicked button",
+    "parameters": [],
+    "body": "return this.lastClickedButtonId || '';"
+},
+  "setButtonVisibility": {
+  "returnType": "void",
+  "description": "Set the visibility state of a button based on its ID.",
+  "parameters": [
+    {
+      "name": "buttonId",
+      "type": "string",
+      "description": "The ID of the button to update the visibility for."
+    },
+    {
+      "name": "visibility",
+      "type": "string",
+      "description": "The visibility state to set ('visible' or 'hidden')."
+    }
+  ]
+}
+
+
+  },
+  "events": {
+    "onSelectionChanged": {
+      "description": "Called when the selection of rows changes."
+    },
+    "onCustomButtonClicked": {
+      "description": "Called when a custom dynamic button is clicked."
+    },
+  "onSelectionModeChange": {
+    "description": "Called when the selection mode changes between single and multi-select."
+  }
+  },
+  "dataBindings": {
+    "tableDataBinding": {
+      "feeds": [
+        {
+          "id": "dimensions",
+          "description": "Dimensions",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Measures",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  }
+}
