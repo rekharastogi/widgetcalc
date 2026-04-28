@@ -11,13 +11,13 @@
   "webcomponents": [
     {
       "kind": "main",
-      "tag": "planifyit-tab-widget",
+      "tag": "Heinz-tab-widget",
       "url": "https://raw.githubusercontent.com/rekharastogi/widgetcalc/refs/heads/main/heinzTABv.json",
       "integrity": "sha256-H8HOoeqd3L2vcVVcuYFyRxSJpCmGpC+ZETNbkiacmBM="
     },
     {
       "kind": "styling",
-      "tag": "com-planifyit-tab-styling",
+      "tag": "com-Heinz-tab-styling",
       "url": "https://raw.githubusercontent.com/rekharastogi/widgetcalc/refs/heads/main/heinz-tab-widget.js",
       "integrity": "sha256-1LZeRI+g3sUr3qB6OXgeW8NwRN67BhmFG+4puPGVaPA="
     }
@@ -31,7 +31,7 @@
     "appTitle": {
       "type": "string",
       "description": "Title displayed for the application",
-      "default": "PlanifyIT Table"
+      "default": "Heinz Table"
     },
     "tableData": {
       "type": "string",
