@@ -1,13 +1,13 @@
 {
-  "name": "PlanifyIT Table",
-  "description": "PlanifyIT Table Widget with Single and Multiple Selection",
-  "newInstancePrefix": "planifyit_tab",
+  "name": "Heinz Table",
+  "description": "Heinz Table Widget with Single and Multiple Selection",
+  "newInstancePrefix": "Heinz_tab",
   "eula": "",
   "vendor": "Heinz Glass GmbH",
   "license": "MIT",
-  "id": "planifyit_tab",
+  "id": "Heinz_tab",
   "version": "1.0.0",
-  "icon": "https://planifyit.github.io/PlanifyitTAB/PlanifyIT_Logo2.png",
+  "icon": "https://github.com/rekharastogi/widgetcalc/blob/main/logo.png",
   "webcomponents": [
     {
       "kind": "main",
@@ -18,7 +18,7 @@
     {
       "kind": "styling",
       "tag": "com-planifyit-tab-styling",
-      "url": "https://planifyit.github.io/PlanifyitTAB/style-panel.js",
+      "url": "https://raw.githubusercontent.com/rekharastogi/widgetcalc/refs/heads/main/heinz-tab-widget.js",
       "integrity": "sha256-1LZeRI+g3sUr3qB6OXgeW8NwRN67BhmFG+4puPGVaPA="
     }
   ],
